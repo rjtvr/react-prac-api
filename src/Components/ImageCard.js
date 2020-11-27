@@ -1,15 +1,15 @@
 import React from 'react'
 
-class ImageCards extends React.Component{
+class ImageCards extends React.Component {
 
-    constructor(props){
+    constructor(props) {
         super(props)
-        this.state = { spans : 0 }
-        
-        this.imageRef =  React.createRef()
+        this.state = { spans: 0 }
+
+        this.imageRef = React.createRef()
     }
 
-    componentDidMount(){
+    componentDidMount() {
         // console.log(this.imageRef)
         // console.log(this.imageRef.current.clientHeight)
 
@@ -17,21 +17,18 @@ class ImageCards extends React.Component{
     }
     setSpans = () => {
         const height = this.imageRef.current.clientHeight
-        const spans = Math.ceil( height / 10 )
-    
+        const spans = Math.ceil(height / 10)
         this.setState({ spans })
-
     }
 
-
-    render(){
-        const {description, urls} = this.props.image
-        return(
-            <div style={{gridRowEnd: `span ${this.state.spans}`}}> 
-                <img 
+    render() {
+        const { description, urls } = this.props.image
+        return (
+            <div style={{ gridRowEnd: `span ${this.state.spans}` }}>
+                <img
                     ref={this.imageRef}
                     alt={description}
-                    src={urls.regular} 
+                    src={urls.regular}
                 />
             </div>
         )
